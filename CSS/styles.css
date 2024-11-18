@@ -1,0 +1,95 @@
+/* Ini CSS */
+
+/* Header Utama */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Menambahkan align-items untuk merapikan vertikal */
+    padding: 10px;
+    background-color: #f8f9fa; /* Contoh warna latar header */
+}
+
+/* Logo */
+.main-logo {
+    height: 75px;
+    width: 75px;
+    background-image: url("https://picsum.photos/200");
+    background-position: center;
+    background-size: cover;
+    border-radius: 50%;
+}
+
+/* Navigasi */
+nav {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Menambahkan jarak antar elemen navigasi */
+}
+
+.navbar {
+    color: black;
+    text-decoration: none;
+    border: 1px solid black;
+    padding: 10px;
+    border-radius: 5px; /* Menambahkan sudut melengkung */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Menambahkan efek transisi */
+}
+
+.navbar:hover {
+    background-color: black; /* Efek hover */
+    color: white;
+}
+
+/* Header Artikel Utama */
+.main-article-header {
+    text-align: center;
+    margin: 20px 0;
+}
+
+/* Artikel Utama */
+.main-article {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 20px; /* Menambahkan jarak antar elemen artikel */
+    padding: 20px;
+}
+
+/* Banner Autoslide */
+.container-banner {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.banner-autoslide {
+    height: 250px;
+    background-image: url("https://picsum.photos/500");
+    background-position: center;
+    background-size: cover;
+    border: 2px solid #ddd;
+    border-radius: 10px; /* Sudut melengkung untuk banner */
+}
+
+/* Header Our Package */
+.our-package-header {
+    text-align: center;
+    margin: 20px 0;
+}
+
+/* Konten Our Package */
+.our-package-content {
+    text-align: center;
+    padding: 10px;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #f1f1f1; /* Warna latar footer */
+    font-size: 14px;
+    color: #555;
+}
