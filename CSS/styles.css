@@ -1,36 +1,22 @@
-/* General Body Styling */
+/* Global Styles */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
-/* Header Styling */
-header {
-    background-color: #333;
-    color: white;
-    padding: 10px 20px;
-    text-align: center;
-}
-
-header .navbar {
-    color: white;
-    text-decoration: none;
-    margin: 0 15px;
-}
-
-header .navbar:hover {
-    text-decoration: underline;
-}
-
-/* Main Header for Logo */
-.main-header {
+/* Header Section */
+header.main-header {
     display: flex;
     justify-content: space-between;
-    padding: 10px 20px;
+    align-items: center;
+    padding: 16px 24px;
+    border-bottom: 2px solid #ddd;
+    background-color: #f8f8f8;
 }
 
-.main-logo {
+header .main-logo {
     height: 75px;
     width: 75px;
     background-image: url(https://picsum.photos/200);
@@ -39,87 +25,133 @@ header .navbar:hover {
     border-radius: 50%;
 }
 
-/* Main Section Styling */
+nav {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+.navbar {
+    text-decoration: none;
+    color: black;
+    padding: 10px 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.navbar:hover {
+    background-color: #f0f0f0;
+}
+
+/* Main Section */
 main {
-    padding: 20px;
+    padding: 24px;
 }
 
-/* Article Header */
-.main-article-header h1 {
-    font-size: 2em;
+.banner {
     text-align: center;
+    margin-bottom: 32px;
 }
 
-.main-article-header h3 {
-    font-size: 1.2em;
-    text-align: center;
-}
-
-/* Banner Section */
-.container-banner {
-    width: 100%;
-    height: 300px;
+.banner-autoslide {
+    height: 250px;
     background-image: url(https://picsum.photos/500);
     background-position: center;
     background-size: cover;
-    text-align: center;
-    line-height: 300px;
-    margin-bottom: 20px;
+    margin: auto;
+    border-radius: 8px;
 }
 
-/* Article Content */
+/* Slideshow Styles */
+.slideshow-container {
+    position: relative;
+    max-width: 100%;
+    margin: auto;
+}
+
+.img-slideshow {
+    display: none;
+    width: 100%;
+    border-radius: 8px;
+}
+
+.img-slideshow:first-child {
+    display: block;
+}
+
+button {
+    margin: 8px;
+    padding: 8px 16px;
+    cursor: pointer;
+    border: none;
+    background-color: #ddd;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #ccc;
+}
+
+/* Article Section */
 .main-article {
     display: flex;
     justify-content: space-evenly;
-    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 24px;
 }
 
-.our-package-header {
+.main-article-header, .our-package-header {
     text-align: center;
-    margin-top: 20px;
+    margin-bottom: 16px;
 }
 
 .our-package-content {
     text-align: center;
+    margin-top: 16px;
 }
 
-/* Contact Form Styling */
-form {
-    margin-top: 20px;
+/* Form Section */
+.form-section {
+    margin-top: 32px;
+    padding: 16px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
 }
 
-form input {
-    padding: 8px;
-    margin-right: 10px;
-    width: 200px;
+.form-section form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
 }
 
-form button {
-    padding: 8px 15px;
-    background-color: #333;
-    color: white;
-    border: none;
-    cursor: pointer;
-}
-
-form button:hover {
-    background-color: #555;
-}
-
-/* Footer Styling */
+/* Footer Section */
 footer {
     text-align: center;
-    background-color: #333;
-    color: white;
-    padding: 10px;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
+    padding: 16px;
+    background-color: #f8f8f8;
+    border-top: 2px solid #ddd;
 }
 
-/* Error Message Styling */
-#error-name {
-    color: red;
-    font-size: 1em;
-    text-align: center;
+/* Media Queries */
+@media only screen and (max-width: 768px) {
+    header.main-header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav {
+        flex-direction: column;
+    }
+
+    .main-article {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .slideshow-container img {
+        width: 100%;
+    }
 }
