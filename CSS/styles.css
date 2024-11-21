@@ -1,157 +1,303 @@
-/* Global Styles */
-body {
-    font-family: Arial, sans-serif;
+/* General Reset */
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Header Section */
-header.main-header {
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* Navbar */
+.navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 16px 24px;
-    border-bottom: 2px solid #ddd;
-    background-color: #f8f8f8;
+    position: relative; /* Add this to allow logo and navbar to be separated */
 }
 
-header .main-logo {
-    height: 75px;
-    width: 75px;
-    background-image: url(https://picsum.photos/200);
-    background-position: center;
-    background-size: cover;
-    border-radius: 50%;
+/* Logo - Positioned to the left */
+.navbar-logo a img {
+    width: 150px;
+    position: absolute;
+    left: 20px;  /* Position logo to the left */
+    top: 80%;  /* Vertically center the logo */
+    transform: translateY(-50%); /* Fine-tune vertical centering */
 }
 
-nav {
+/* Navigation Box */
+.navbar-box {
     display: flex;
-    gap: 16px;
-    align-items: center;
+    justify-content: space-between;
+    width: 30%; /* The box will take up half the width of navbar */
+    background-color: #444;  /* Background for the navbar box */
+    border-radius: 5px;
+    border: 2px solid #fff; /* Add a border around the entire navbar box */
 }
 
-.navbar {
+/* Navigation Links inside the box */
+.navbar-links {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    list-style-type: none;
+}
+
+.navbar-links li {
+    margin: 0;
+    border-right: 2px solid #fff;
+}
+
+.navbar-links li:last-child {
+    border-right: none;
+}
+
+.navbar-links a {
+    color: white;
     text-decoration: none;
-    color: black;
-    padding: 10px 16px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    transition: background-color 0.3s ease;
+    padding: 10px 20px;
+    display: block;
+    background-color: #444;
+    border-radius: 5px;
 }
 
-.navbar:hover {
-    background-color: #f0f0f0;
+.navbar-links a:hover {
+    background-color: #555;
 }
 
-/* Main Section */
-main {
-    padding: 24px;
-}
-
-.banner {
+/* Main Title */
+.main-title {
     text-align: center;
-    margin-bottom: 32px;
+    margin-top: 50px;
 }
 
-.banner-autoslide {
-    height: 250px;
-    background-image: url(https://picsum.photos/500);
-    background-position: center;
-    background-size: cover;
-    margin: auto;
-    border-radius: 8px;
+.main-title h1 {
+    font-size: 3em;
 }
 
-/* Slideshow Styles */
-.slideshow-container {
+/* Banner Section Styling */
+.banner-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    height: 400px;
+    margin-top: 20px;
+}
+
+.banner-slides {
+    flex: 1;
     position: relative;
-    max-width: 100%;
-    margin: auto;
+    overflow: hidden;
+    height: 100%;
 }
 
 .img-slideshow {
-    display: none;
     width: 100%;
-    border-radius: 8px;
+    height: auto;
 }
 
-.img-slideshow:first-child {
-    display: block;
-}
-
-button {
-    margin: 8px;
-    padding: 8px 16px;
-    cursor: pointer;
+/* Slideshow Navigation */
+.banner-slides button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
     border: none;
-    background-color: #ddd;
+    padding: 0.8rem;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.banner-slides .prev {
+    left: 10px;
+}
+
+.banner-slides .next {
+    right: 10px;
+}
+
+/* Section Contact Us yang diletakkan di sebelah kanan gambar */
+.contact-form {
+    flex: 0 1 300px;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 1rem;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.contact-form h2 {
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+/* Style untuk form */
+.contact-form input, .contact-form select, .contact-form button {
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
     border-radius: 4px;
-    transition: background-color 0.3s ease;
+    font-size: 1rem;
 }
 
-button:hover {
-    background-color: #ccc;
+.contact-form button {
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
 }
 
-/* Article Section */
-.main-article {
-    display: flex;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-    gap: 24px;
+.contact-form button:hover {
+    background-color: #0056b3;
 }
 
-.main-article-header, .our-package-header {
+
+/* Our Packages */
+.packages {
     text-align: center;
-    margin-bottom: 16px;
+    margin-top: 50px;
 }
 
-.our-package-content {
-    text-align: center;
-    margin-top: 16px;
+.packages h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
 }
 
-/* Form Section */
-.form-section {
-    margin-top: 32px;
-    padding: 16px;
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
+/* Container for Packages */
+.packages-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns */
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.package {
+    background-color: #f4f4f4;
     border-radius: 8px;
-}
-
-.form-section form {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-}
-
-/* Footer Section */
-footer {
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
-    padding: 16px;
-    background-color: #f8f8f8;
-    border-top: 2px solid #ddd;
 }
 
-/* Media Queries */
-@media only screen and (max-width: 768px) {
-    header.main-header {
+.package img {
+    width: 50px; /* Icon size */
+    margin-bottom: 15px;
+}
+
+.package h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.package p {
+    color: #666;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar {
+        flex-wrap: wrap;
+        justify-content: center; /* Center navbar content on small screens */
+    }
+
+    .navbar-logo {
+        position: relative;
+        margin-right: 0;
+    }
+
+    .navbar-box {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .navbar-links {
         flex-direction: column;
         text-align: center;
     }
 
-    nav {
-        flex-direction: column;
+    .navbar-links a {
+        padding: 15px 30px;
     }
 
-    .main-article {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .slideshow-container img {
+    .contact-form {
+        position: relative;
+        top: unset;
+        right: unset;
+        transform: unset;
         width: 100%;
     }
+
+    .packages-container {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns on small screens */
+    }
+
+    .banner-container {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .banner-slides button {
+        font-size: 14px;
+        padding: 0.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .packages-container {
+        grid-template-columns: 1fr; /* 1 column on very small screens */
+    }
+
+    .call-to-action {
+        height: 20vh;
+    }
+}
+
+/* Call to Action */
+.call-to-action {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Vertically center content */
+    align-items: center; /* Horizontally center content */
+    height: 30vh; /* Set the height to full viewport height */
+    color: black; /* Warna teks putih */
+    text-align: center; /* Pusatkan teks */
+    padding: 10px 0;
+}
+
+.call-to-action h2 {
+    font-size: 1.9em;
+    margin-bottom: 10px;
+}
+
+.call-to-action p {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.call-to-action button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    cursor: pointer;
+}
+
+.call-to-action button:hover {
+    background-color: lightskyblue;
+}
+
+/* Footer Section */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 30px;
+}
+
+footer p {
+    font-size: 1em;
 }

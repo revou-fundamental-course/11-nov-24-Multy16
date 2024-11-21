@@ -1,63 +1,55 @@
-let slideIndex = 1;
+// Banner Auto-Slide
+let slideIndex = 0;
 
-// Tampilkan slide berdasarkan indeks
-function showDivs(n) {
-    const slides = document.getElementsByClassName("img-slideshow");
+function showSlides() {
+    const slides = document.querySelectorAll(".img-slideshow");
+    slides.forEach(slide => (slide.style.display = "none")); // Sembunyikan semua slide
+    slideIndex++;
 
-    if (n > slides.length) slideIndex = 1;
-    if (n < 1) slideIndex = slides.length;
-
-    for (let i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-    }
-
-    slides[slideIndex - 1].style.display = "block";
+    if (slideIndex > slides.length) slideIndex = 1; // Reset ke slide pertama
+    if (slideIndex < 1) slideIndex = slides.length; // Jika indeks kurang dari 1, lompat ke slide terakhir
+    slides[slideIndex - 1].style.display = "block"; // Tampilkan slide aktif
 }
 
-// Navigasi slide
 function plusDivs(n) {
-    showDivs(slideIndex += n);
+    slideIndex += n; // Tambah atau kurangi indeks berdasarkan tombol navigasi
+    showSlides();
 }
+
+// Menjalankan slideshow otomatis
+setInterval(showSlides, 3000); // Ubah slide setiap 3 detik
 
 // Inisialisasi slide pertama
-showDivs(slideIndex);
+document.addEventListener("DOMContentLoaded", showSlides);
 
-// Validasi form
-function validateForm() {
-    // Mengambil nilai input
-    const nama = document.forms["message-form"]["full-name"].value;
-    const birthDate = document.forms["message-form"]["birth-date"].value;
+// Form Validation
+document.getElementById("contactForm").addEventListener("submit", function (e) {
+    e.preventDefault(); // Mencegah form terkirim sebelum validasi selesai
 
-    // Mengambil elemen untuk menampilkan pesan error
-    const errorName = document.getElementById("error-name");
+    // Ambil nilai dari setiap field
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const interest = document.getElementById("interest").value;
 
-    // Validasi nama
-    if (nama.trim() === "") {
-        errorName.innerHTML = "Nama tidak boleh kosong!";
-        return false; // Mencegah form untuk di-submit
+    // Validasi: Periksa jika ada field yang kosong
+    if (!name || !email || !interest) {
+        alert("Harap isi semua field.");
+        return; // Hentikan pengiriman form
     }
 
-    // Validasi tanggal lahir
-    if (birthDate.trim() === "") {
-        errorName.innerHTML = "Tanggal lahir tidak boleh kosong!";
-        return false; // Mencegah form untuk di-submit
+    // Validasi: Periksa format email
+    const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    if (!emailPattern.test(email)) {
+        alert("Harap masukkan alamat email yang valid.");
+        return; // Hentikan pengiriman form jika email tidak valid
     }
 
-    // Jika valid, tampilkan nama di elemen tertentu
-    setName(nama);
+    // Jika semua validasi lolos
+    alert("Form berhasil dikirim!");
+});
 
-    return false; // Mencegah form untuk reload atau submit
-}
-
-// Fungsi untuk mengubah nama pada elemen dengan id 'name'
-function setName(name) {
-    // Mengubah nama yang ditampilkan di elemen dengan id 'name'
-    document.getElementById("name").innerHTML = name;
-    // Menghapus pesan error (jika ada)
-    document.getElementById("error-name").innerHTML = "";
-}
-
-function plusDivs(n) {
-    console.log(`Navigating slides by: ${n}`);
-    showDivs(slideIndex += n);
+// Scroll to Contact Section
+function scrollToContact() {
+    const contactSection = document.querySelector(".contact-form"); // Target form kontak
+    contactSection.scrollIntoView({ behavior: "smooth" });
 }
