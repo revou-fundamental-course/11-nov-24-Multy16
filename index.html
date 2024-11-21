@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Trusted Travel Agent</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <!-- Logo -->
+            <div class="navbar-logo">
+                <a href="#home">
+                    <img src="assets/logo.jpg" alt="Travel Agency Logo">
+                </a>
+            </div>
+
+            <!-- Navigation Box with 3 columns -->
+            <div class="navbar-box">
+                <ul class="navbar-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#our-packages">Our Package</a></li>
+                    <li><a href="#call-to-action">Call Us</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Title Section -->
+    <section id="home" class="main-title">
+        <h1>Your Trusted Travel Agent</h1>
+        <p>
+            <strong>Menikmati waktu terbaik anda bersama kami</strong><br>Your happiness is our happiness
+        </p>
+    </section>
+
+    <!-- Banner Section with Contact Us on the side -->
+    <section id="home" class="banner-container">
+        <div class="banner-slides">
+            <img class="img-slideshow" src="https://www.airfaregeeks.com.au/wp-content/uploads/2019/10/Quick-Guide-To-Planning-A-Multi-Continent-Or-Round-The-World-Itinerary.jpeg" alt="Round the World Itinerary Planning">
+            <img class="img-slideshow" src="https://miro.medium.com/v2/resize:fit:1400/format:webp/1*gEr61cZ5nQIpEtKMkEbRVg.jpeg" alt="Destinasi Pilihan Terbaik">
+            <img class="img-slideshow" src="https://i.pinimg.com/736x/e8/92/f4/e892f4096519fe6a693423720cfd22c1.jpg" alt="Langkah Mudah Liburan Bermakna">
+            <button class="prev" onclick="plusDivs(-1)">❮</button>
+            <button class="next" onclick="plusDivs(1)">❯</button>
+        </div>
+
+        <!-- Contact Us Form -->
+        <div class="contact-form">
+            <h2>Contact Us</h2>
+            <p><strong>Hubungi kami untuk penawaran menarik</strong></p>
+            <form id="contactForm">
+                <label for="name">Nama Anda:</label>
+                <input type="text" id="name" name="name" placeholder="Nama lengkap Anda" required>
+                <label for="email">Email Anda:</label>
+                <input type="email" id="email" name="email" placeholder="gunakan @ atau email lengkap" required>
+                <label for="interest">Pilih Pengalaman Terbaik!</label>
+                <select id="interest" name="interest" required>
+                    <option value="" disabled selected>Pilihan</option>
+                    <option value="holiday">Holiday Packages</option>
+                    <option value="adventure">Adventure Tours</option>
+                    <option value="luxury">Luxury Travel</option>
+                </select>
+                <button type="submit">KIRIM</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Our Packages Section -->
+    <section id="our-packages" class="packages">
+        <h2>Our Packages</h2>
+        <p>Explore our curated travel packages designed just for you!</p>
+        <div class="packages-container">
+            <div class="package">
+                <h3>Bali</h3>
+                <p>Travel dan wisata di Bali, kunjungi cagar budaya dan kuliner yang menarik.</p>
+            </div>
+            <div class="package">
+                <h3>Japan</h3>
+                <p>Travel dan wisata di Jepang, kunjungi cagar budaya dan kuliner yang menarik.</p>
+            </div>
+            <div class="package">
+                <h3>Singapore</h3>
+                <p>This description supports and extends the bullet point above.</p>
+            </div>
+            <div class="package">
+                <h3>Bandung</h3>
+                <p>This description supports and extends the bullet point above.</p>
+            </div>
+            <div class="package">
+                <h3>Surabaya</h3>
+                <p>This description supports and extends the bullet point above.</p>
+            </div>
+            <div class="package">
+                <h3>Third Feature</h3>
+                <p>This description supports and extends the bullet point above.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section id="call-to-action" class="call-to-action">
+        <h2>PILIHAN TERBAIK PENGALAMAN LIBURAN ANDA</h2>
+        <p>Segera booking dan jadwalkan! Penawaran Terbaik</p>
+        <button onclick="scrollToContact()">Call to Action</button>
+    </section>
+
+    <footer>
+        <p>All Right Reserved by Ayoin.id</p>
+        <p>&copy; Mini Course Fundamental Software Engineer. All Right Reserved.</p>
+    </footer>
+
+    <script>
+        // Slideshow functionality
+        let slideIndex = 0;
+
+        function showDivs() {
+            const slides = document.getElementsByClassName("img-slideshow");
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) slideIndex = 1;
+            slides[slideIndex - 1].style.display = "block";
+        }
+
+        function plusDivs(n) {
+            slideIndex += n;
+            const slides = document.getElementsByClassName("img-slideshow");
+            if (slideIndex > slides.length) slideIndex = 1;
+            if (slideIndex < 1) slideIndex = slides.length;
+            showDivs();
+        }
+
+        setInterval(showDivs, 3000); // Auto-slide every 3 seconds
+        showDivs(); // Initialize the first slide
+    </script>
+</body>
+
+</html>
